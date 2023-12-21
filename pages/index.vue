@@ -1,40 +1,116 @@
+<script setup>
+const items = [
+  [
+    {
+      label: "Profile",
+      avatar: {
+        src: "https://avatars.githubusercontent.com/u/739984?v=4",
+      },
+    },
+  ],
+  [
+    {
+      label: "Edit",
+      icon: "i-heroicons-pencil-square-20-solid",
+      shortcuts: ["E"],
+      click: () => {
+        console.log("Edit");
+      },
+    },
+    {
+      label: "Duplicate",
+      icon: "i-heroicons-document-duplicate-20-solid",
+      shortcuts: ["D"],
+      disabled: true,
+    },
+  ],
+  [
+    {
+      label: "Archive",
+      icon: "i-heroicons-archive-box-20-solid",
+    },
+    {
+      label: "Move",
+      icon: "i-heroicons-arrow-right-circle-20-solid",
+    },
+  ],
+  [
+    {
+      label: "Delete",
+      icon: "i-heroicons-trash-20-solid",
+      shortcuts: ["⌘", "D"],
+    },
+  ],
+];
+</script>
+
 <template>
-    <div>
-      <ULandingHero title="Nuxt UI Pro - Starter" description="Nuxt UI Pro is a collection of premium components built on top of Nuxt UI to create beautiful & responsive Nuxt applications in minutes.">
-        <template #links>
-          <UButton to="https://ui.nuxt.com/pro/guide" target="_blank" size="lg" icon="i-heroicons-book-open">
-            Guide
-          </UButton>
-  
-          <UButton to="https://ui.nuxt.com/pro/components" target="_blank" size="lg" color="gray" icon="i-heroicons-cube-transparent">
-            Components
-          </UButton>
+  <UContainer class="flex flex-col gap-4 w-96 mt-8">
+    <UForm>
+      <UCard>
+        <template #header>
+          <div class="grid grid-cols-2">
+            <div class="grid grid-cols-2 gap-4">
+              <h1>Comprar</h1>
+              <h1>Vender</h1>
+            </div>
+            <div class="grid grid-cols-1 justify-items-end">
+              <UButton
+                icon="i-heroicons-cog-8-tooth"
+                size="sm"
+                color="primary"
+              />
+            </div>
+          </div>
         </template>
-      </ULandingHero>
-  
-      <ULandingSection id="features" title="The freedom to build anything">
-        <template #description>
-          Nuxt UI Pro ships with an extensive set of advanced components that cover a wide range of use-cases.<br> Carefully crafted to reduce boilerplate code without sacrificing flexibility.
+
+        <div class="grid grid-cols-2 gap-1">
+          <UInput
+            class="w-full"
+            icon="i-heroicons-magnifying-glass-20-solid"
+            size="sm"
+            color="white"
+            :trailing="false"
+            placeholder="You will pay"
+            :padder="false"
+            variant="none"
+          />
+
+          <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
+            <UButton
+              color="white"
+              label="Options"
+              variant="ghost"
+              icon="i-heroicons-light-bulb"
+            />
+          </UDropdown>
+        </div>
+        <UDivider icon="i-heroicons-arrow-long-down" class="my-2"/>
+        <div class="grid grid-cols-2 gap-1">
+          <UInput
+            class="mt-2 w-full"
+            icon="i-heroicons-magnifying-glass-20-solid"
+            size="sm"
+            color="white"
+            :trailing="false"
+            placeholder="You will pay"
+            :padder="false"
+            variant="none"
+          />
+
+          <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
+            <UButton
+              color="white"
+              label="Options"
+              variant="ghost"
+              icon="i-heroicons-light-bulb"
+            />
+          </UDropdown>
+        </div>
+        <template #footer>
+          <UButton type="submit" :loading="false" block> Submit </UButton>
         </template>
-  
-        <UPageGrid>
-          <UPageCard icon="i-heroicons-wrench-screwdriver" title="Fully customizable" description="Like Nuxt UI, change the style of any component from your App Config or customize them specifically through the ui prop." />
-          <UPageCard icon="i-heroicons-square-3-stack-3d" title="Slots for everything" description="Each component leverages the power of Vue's slots to give you the flexibility to build anything." />
-          <UPageCard icon="i-heroicons-device-phone-mobile" title="Responsive by design" description="Nuxt UI Pro components aims to structure your content, they are responsive by design and will adapt to any screen size." />
-        </UPageGrid>
-      </ULandingSection>
-  
-      <ULandingSection>
-        <ULandingCTA title="Ready to get started?" description="Nuxt UI Pro is free in development, but you need a license to use it in production.">
-          <template #links>
-            <UButton to="https://ui.nuxt.com/pro/purchase" target="_blank" size="lg" color="black" icon="i-heroicons-credit-card">
-              Buy now
-            </UButton>
-            <UButton to="https://ui.nuxt.com/pro/guide#license" target="_blank" size="lg" color="gray" trailing-icon="i-heroicons-arrow-right-20-solid">
-              License
-            </UButton>
-          </template>
-        </ULandingCTA>
-      </ULandingSection>
-    </div>
-  </template>
+      </UCard>
+    </UForm>
+  </UContainer>
+</template>

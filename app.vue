@@ -1,9 +1,9 @@
 <script setup>
 import { createWeb3Modal, defaultWagmiConfig } from "@web3modal/wagmi/vue";
-import { mainnet, arbitrum } from "viem/chains";
+import { mainnet, arbitrum, sepolia, goerli } from "viem/chains";
 
 // 1. Get projectId at https://cloud.walletconnect.com
-const projectId = "YOUR_PROJECT_ID";
+const projectId = "3dc726cfd83b53d24898e4af040d6a69";
 
 // 2. Create wagmiConfig
 const metadata = {
@@ -13,7 +13,7 @@ const metadata = {
   icons: ["https://avatars.githubusercontent.com/u/37784886"],
 };
 
-const chains = [mainnet, arbitrum];
+const chains = [mainnet, arbitrum, sepolia, goerli];
 const wagmiConfig = defaultWagmiConfig({ chains, projectId, metadata });
 
 // 3. Create modal
@@ -32,14 +32,7 @@ const links = [
   },
 ];
 
-useHead({
-  title: "Nuxt UI Pro - Starter",
-  meta: [{ name: "viewport", content: "width=device-width, initial-scale=1" }],
-  link: [{ rel: "icon", href: "/favicon.ico" }],
-  htmlAttrs: {
-    lang: "en",
-  },
-});
+
 
 useSeoMeta({
   description:
@@ -48,31 +41,12 @@ useSeoMeta({
 </script>
 
 <template>
-  <UHeader :links="links">
-    <template #logo>
-      Nuxt UI Pro <UBadge label="Starter" variant="subtle" class="mb-0.5" />
-    </template>
-
-    <template #right>
-      <UColorModeButton />
-      <w3m-button />
-
-      <UButton
-        to="https://github.com/nuxt-ui-pro/starter"
-        target="_blank"
-        icon="i-simple-icons-github"
-        aria-label="GitHub"
-        color="gray"
-        variant="ghost"
-      />
-    </template>
-  </UHeader>
-
+ 
+  <TheHeader />
   <UMain>
     <NuxtPage />
   </UMain>
 
-  <UFooter>
-    <template #left> Copyright © {{ new Date().getFullYear() }} </template>
-  </UFooter>
+  <TheFooter />
+ 
 </template>
