@@ -8,51 +8,18 @@ const items = [
       },
     },
   ],
-  [
-    {
-      label: "Edit",
-      icon: "i-heroicons-pencil-square-20-solid",
-      shortcuts: ["E"],
-      click: () => {
-        console.log("Edit");
-      },
-    },
-    {
-      label: "Duplicate",
-      icon: "i-heroicons-document-duplicate-20-solid",
-      shortcuts: ["D"],
-      disabled: true,
-    },
-  ],
-  [
-    {
-      label: "Archive",
-      icon: "i-heroicons-archive-box-20-solid",
-    },
-    {
-      label: "Move",
-      icon: "i-heroicons-arrow-right-circle-20-solid",
-    },
-  ],
-  [
-    {
-      label: "Delete",
-      icon: "i-heroicons-trash-20-solid",
-      shortcuts: ["⌘", "D"],
-    },
-  ],
 ];
 </script>
 
 <template>
-  <UContainer class="flex flex-col gap-4 w-96 mt-8">
+  <UContainer class="flex flex-col gap-4 form-size mt-8">
     <UForm>
       <UCard>
         <template #header>
           <div class="grid grid-cols-2">
-            <div class="grid grid-cols-2 gap-4">
-              <h1>Comprar</h1>
-              <h1>Vender</h1>
+            <div class="grid grid-cols-4 ml-4">
+              <h1>Swap</h1>
+              <h1>Buy</h1>
             </div>
             <div class="grid grid-cols-1 justify-items-end">
               <UButton
@@ -75,20 +42,25 @@ const items = [
             :padder="false"
             variant="none"
           />
-
-          <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
+          <UDropdown :items="items" :popper="{ placement: 'right-start' }">
             <UButton
               color="white"
               label="Options"
+              trailing-icon="i-heroicons-chevron-down-20-solid"
+              class="w-full"
               variant="ghost"
-              icon="i-heroicons-light-bulb"
+
+
+      
             />
           </UDropdown>
         </div>
-        <UDivider icon="i-heroicons-arrow-long-down" class="my-2"/>
+
+        <UDivider icon="i-heroicons-arrow-long-down" class="my-2" />
+
         <div class="grid grid-cols-2 gap-1">
           <UInput
-            class="mt-2 w-full"
+            class="w-full"
             icon="i-heroicons-magnifying-glass-20-solid"
             size="sm"
             color="white"
@@ -97,16 +69,19 @@ const items = [
             :padder="false"
             variant="none"
           />
-
-          <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
+          <UDropdown :items="items" :popper="{ placement: 'right-start' }">
             <UButton
               color="white"
               label="Options"
+              trailing-icon="i-heroicons-chevron-down-20-solid"
+              class="w-full"
               variant="ghost"
-              icon="i-heroicons-light-bulb"
+
+      
             />
           </UDropdown>
         </div>
+
         <template #footer>
           <UButton type="submit" :loading="false" block> Submit </UButton>
         </template>
@@ -114,3 +89,8 @@ const items = [
     </UForm>
   </UContainer>
 </template>
+<style>
+.form-size {
+  width: 600px;
+}
+</style>
