@@ -2,13 +2,13 @@
   <div>
     <UHeader :links="links">
       <template #logo>
-        Nuxt UI Pro <UBadge label="Starter" variant="subtle" class="mb-0.5" />
+        Cryptocurrency echange
       </template>
 
       <template #right>
         <UColorModeButton />
         <w3m-button />
-
+       
         <UButton
           to="https://github.com/nuxt-ui-pro/starter"
           target="_blank"
@@ -24,12 +24,23 @@
 
 <script setup>
 useHead({
-  title: "Nuxt UI Pro - Starter",
+  title: "Swap App",
   meta: [{ name: "viewport", content: "width=device-width, initial-scale=1" }],
-  link: [{ rel: "icon", href: "/favicon.ico" }],
+  link: [{ rel: "icon", href: "/bitcoin.png" }],
   htmlAttrs: {
     lang: "en",
   },
 });
+const links = [{
+  label: 'Home',
+  to: '/'
+},
+{
+  label: 'Swap',
+  icon: 'i-simple-icons-github',
+  to: '/swap'
+},
+]
+
 </script>
 

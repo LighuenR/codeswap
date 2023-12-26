@@ -1,116 +1,68 @@
-<script setup>
-const items = [
-  [
-    {
-      label: "Profile",
-      avatar: {
-        src: "https://avatars.githubusercontent.com/u/739984?v=4",
-      },
-    },
-  ],
-  [
-    {
-      label: "Edit",
-      icon: "i-heroicons-pencil-square-20-solid",
-      shortcuts: ["E"],
-      click: () => {
-        console.log("Edit");
-      },
-    },
-    {
-      label: "Duplicate",
-      icon: "i-heroicons-document-duplicate-20-solid",
-      shortcuts: ["D"],
-      disabled: true,
-    },
-  ],
-  [
-    {
-      label: "Archive",
-      icon: "i-heroicons-archive-box-20-solid",
-    },
-    {
-      label: "Move",
-      icon: "i-heroicons-arrow-right-circle-20-solid",
-    },
-  ],
-  [
-    {
-      label: "Delete",
-      icon: "i-heroicons-trash-20-solid",
-      shortcuts: ["⌘", "D"],
-    },
-  ],
-];
-</script>
 
 <template>
-  <UContainer class="flex flex-col gap-4 w-96 mt-8">
-    <UForm>
-      <UCard>
-        <template #header>
-          <div class="grid grid-cols-2">
-            <div class="grid grid-cols-2 gap-4">
-              <h1>Comprar</h1>
-              <h1>Vender</h1>
-            </div>
-            <div class="grid grid-cols-1 justify-items-end">
-              <UButton
-                icon="i-heroicons-cog-8-tooth"
-                size="sm"
-                color="primary"
-              />
-            </div>
-          </div>
-        </template>
-
-        <div class="grid grid-cols-2 gap-1">
-          <UInput
-            class="w-full"
-            icon="i-heroicons-magnifying-glass-20-solid"
-            size="sm"
-            color="white"
-            :trailing="false"
-            placeholder="You will pay"
-            :padder="false"
-            variant="none"
-          />
-
-          <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
-            <UButton
-              color="white"
-              label="Options"
-              variant="ghost"
-              icon="i-heroicons-light-bulb"
-            />
-          </UDropdown>
-        </div>
-        <UDivider icon="i-heroicons-arrow-long-down" class="my-2"/>
-        <div class="grid grid-cols-2 gap-1">
-          <UInput
-            class="mt-2 w-full"
-            icon="i-heroicons-magnifying-glass-20-solid"
-            size="sm"
-            color="white"
-            :trailing="false"
-            placeholder="You will pay"
-            :padder="false"
-            variant="none"
-          />
-
-          <UDropdown :items="items" :popper="{ placement: 'bottom-start' }">
-            <UButton
-              color="white"
-              label="Options"
-              variant="ghost"
-              icon="i-heroicons-light-bulb"
-            />
-          </UDropdown>
-        </div>
-        <template #footer>
-          <UButton type="submit" :loading="false" block> Submit </UButton>
-        </template>
-      </UCard>
-    </UForm>
-  </UContainer>
+  <div>
+    <ULandingCTA
+      icon="i-heroicons-rocket-launch"
+      title="Trade cryptocurrencies and NFTs with confidence"
+      description="Buy, sell and explore tokens and NFTs"
+      card
+      :links="[
+        { label: 'Get started', size: 'lg', to: '/swap' },
+        {
+          label: 'Learn more',
+          variant: 'link',
+          color: 'gray',
+          size: 'lg',
+          trailingIcon: 'i-heroicons-arrow-right-20-solid',
+          to: '#aboutUs',
+        },
+      ]"
+    />
+    <UCard id="aboutUs">
+      <UContainer>
+        <ULandingGrid>
+        <ULandingCard
+          class="col-span-6 row-span-4 bg-swap"
+          inactive-class="bg-swap"
+          icon="i-heroicons-arrow-path"
+          title="Swap Tokens"
+          description="Buy, sell, and explore tokens on Ethereum, Polygon, Optimism, and more."
+        />
+        <ULandingCard
+          class="col-span-6 row-span-4"
+          icon="i-heroicons-arrows-right-left"
+          title="Trade NFTs"
+          description="Buy and sell NFTs across marketplaces to find more listings at better prices."
+        />
+        <ULandingCard
+          class="col-span-4 row-span-2"
+          icon="i-heroicons-currency-dollar"
+          title="Buy crypto"
+          description="Buy crypto with your credit card or bank account at the best rates."
+        />
+        <ULandingCard
+          class="col-span-4 row-span-2"
+          icon="i-heroicons-arrow-trending-up"
+          title="Earn"
+          description="Provide liquidity to pools on Uniswap and earn fees on swaps."
+        />
+        <ULandingCard
+          class="col-span-4 row-span-2"
+          icon="i-heroicons-plus"
+          title="Build Apps"
+          description="Build apps and tools on the largest DeFi protocol on Ethereum."
+        />
+      </ULandingGrid>
+      </UContainer>
+    </UCard>
+  </div>
 </template>
+ <style>
+ .bg-swap {
+  background-image: url("/img/bg-swap.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center right;
+  opacity: 1;
+ }
+</style>
