@@ -69,7 +69,8 @@ const items = [
             :padder="false"
             variant="none"
           />
-          <UDropdown :items="items" :popper="{ placement: 'right-start' }">
+          <UButton @click="sendTransaction?.()"> aa</UButton>
+          <!-- <UDropdown :items="items" :popper="{ placement: 'right-start' }">
             <UButton
               color="white"
               label="Options"
@@ -79,7 +80,7 @@ const items = [
 
       
             />
-          </UDropdown>
+          </UDropdown> -->
         </div>
 
         <template #footer>

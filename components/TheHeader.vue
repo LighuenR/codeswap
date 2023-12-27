@@ -40,6 +40,10 @@ const links = [{
   icon: 'i-simple-icons-github',
   to: '/swap'
 },
+{
+  label: "Send",
+  to: "/send"
+}
 ]
 
 </script>
