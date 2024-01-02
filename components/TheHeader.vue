@@ -43,6 +43,10 @@ const links = [{
 {
   label: "Send",
   to: "/send"
+},
+{
+  label: "Balance",
+  to: "/balance"
 }
 ]
 

@@ -49,9 +49,6 @@ const items = [
               trailing-icon="i-heroicons-chevron-down-20-solid"
               class="w-full"
               variant="ghost"
-
-
-      
             />
           </UDropdown>
         </div>
@@ -69,18 +66,16 @@ const items = [
             :padder="false"
             variant="none"
           />
-          <UButton @click="sendTransaction?.()"> aa</UButton>
-          <!-- <UDropdown :items="items" :popper="{ placement: 'right-start' }">
+
+          <UDropdown :items="items" :popper="{ placement: 'right-start' }">
             <UButton
               color="white"
               label="Options"
               trailing-icon="i-heroicons-chevron-down-20-solid"
               class="w-full"
               variant="ghost"
-
-      
             />
-          </UDropdown> -->
+          </UDropdown>
         </div>
 
         <template #footer>
